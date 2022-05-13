@@ -29,10 +29,10 @@ jobs:
       run: |
         cd frontend && \
         docker build . --file Dockerfile \
-        --tag ghcr.io/${{ env.BASE_IMG_NAME }}/ft-frontend:${{ steps.vars.outputs.sha_short }} \
-        --tag ghcr.io/${{ env.BASE_IMG_NAME }}/ft-frontend:latest
+        --tag ghcr.io/${{ env.BASE_IMG_NAME.LOWEST_PRECEDENCE }}/ft-frontend:${{ steps.vars.outputs.sha_short }} \
+        --tag ghcr.io/${{ env.BASE_IMG_NAME.LOWEST_PRECEDENCE }}/ft-frontend:latest
     - name: Publish the images
       run: | 
-        docker push ghcr.io/${{ env.BASE_IMG_NAME }}/ft-frontend:${{ steps.vars.outputs.sha_short }}
-        docker push ghcr.io/${{ env.BASE_IMG_NAME }}/ft-frontend:latest
+        docker push ghcr.io/${{ env.BASE_IMG_NAME.LOWEST_PRECEDENCE }}/ft-frontend:${{ steps.vars.outputs.sha_short }}
+        docker push ghcr.io/${{ env.BASE_IMG_NAME.LOWEST_PRECEDENCE }}/ft-frontend:latest
 
