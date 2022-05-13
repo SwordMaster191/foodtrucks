@@ -30,9 +30,9 @@ jobs:
         cd backend && \
         docker build . --file Dockerfile \
         --tag ghcr.io/swordmaster191/ft-backend:${{ steps.vars.outputs.sha_short }} \
-        --tag ghcr.io/swordmaster191/ft-backend/ft-backend:latest
+        --tag ghcr.io/swordmaster191/ft-backend:latest
     - name: Publish the images
       run: | 
-        docker push ghcr.io/swordmaster191/ft-backend/ft-backend:${{ steps.vars.outputs.sha_short }}
-        docker push ghcr.io/swordmaster191/ft-backend/ft-backend:latest
+        docker push ghcr.io/swordmaster191/ft-backend:${{ steps.vars.outputs.sha_short }}
+        docker push ghcr.io/swordmaster191/ft-backend:latest
 
